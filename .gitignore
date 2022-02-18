@@ -1,0 +1,9 @@
+# Formato de archivos Excluidos
+
+# Ejecutables
+*.out
+*.exe
+
+# MetaData
+*.vscode
+
