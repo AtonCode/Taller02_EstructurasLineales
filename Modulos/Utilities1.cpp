@@ -31,7 +31,7 @@ bool recibirPalindromo1(std::string s) {
   // eliminar espacios
   // s.erase(remove(s.begin(),s.end(), ' '),s.end());
   // agregar palabra a un vector
-  vector<char> v;
+  std::vector<char> v;
   int tam = s.size();
   for (int i = 0; i < tam; i++) {
     s[i] = tolower(s[i]);
@@ -39,8 +39,8 @@ bool recibirPalindromo1(std::string s) {
       v.push_back(s[i]);
   }
   // recorrer con 2 vectores
-  vector<char>::reverse_iterator rit = v.rbegin();
-  vector<char>::iterator it = v.begin();
+  std::vector<char>::reverse_iterator rit = v.rbegin();
+  std::vector<char>::iterator it = v.begin();
   while (it != v.end()) {
     if (*rit != *it)
       return false;
@@ -54,7 +54,7 @@ bool recibirPalindromo1(std::string s) {
 //Activity Two
 int evaluarExpresionPostfija(std::string s) {
   // declarar stack
-  stack<int> exp;
+  std::stack<int> exp;
   // convertir string a char array
   int n = s.length();
   char ca[n + 1];
@@ -84,11 +84,11 @@ int evaluarExpresionPostfija(std::string s) {
         break;
 
       case '/':
-        cout<<"operación: "<<num1<<op<<num2<<endl;
+        std::cout<<"operación: "<<num1<<op<<num2<<std::endl;
         break;
 
       default:
-        cout << "Error, revise la expresion insertada";
+        std::cout << "Error, revise la expresion insertada";
         break;
       }
     }else{ // Si es un numero insertarlo en la pila 

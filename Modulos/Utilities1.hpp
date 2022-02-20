@@ -11,12 +11,12 @@
 #include <stack>
 #include <vector>
 
+
 //Activiy One
 bool palindromeVerificationUsingStack(std::string text);
 bool recibirPalindromo1(std::string s);
 
 //Activity Two
 int evaluarExpresionPostfija(std::string s);
-
 
 #endif /* UTILITIES1_HPP*/
