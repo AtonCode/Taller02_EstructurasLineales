@@ -6,12 +6,17 @@
 
 #include <algorithm>
 #include <cctype>
-#include <stack>
-#include <string.h>
 #include <string>
+#include <string.h>
+#include <stack>
 #include <vector>
 
+//Activiy One
+bool palindromeVerificationUsingStack(std::string text);
+bool recibirPalindromo1(std::string s);
 
-bool palindromeVerification(std::string text);
+//Activity Two
+int evaluarExpresionPostfija(std::string s);
+
 
 #endif /* UTILITIES1_HPP*/

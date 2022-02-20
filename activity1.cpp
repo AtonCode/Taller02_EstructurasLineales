@@ -7,10 +7,12 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-  string texto = " "; 
+  string text = " "; 
   bool isPalindrome = false;
-  cin>>texto;
-  isPalindrome = palindromeVerification(texto);
+  cin>>text;
+  
+  isPalindrome = palindromeVerificationUsingStack(text);
+  //isPalindrome = recibirPalindromo1(text);
   cout<<isPalindrome<<endl;
   
 
