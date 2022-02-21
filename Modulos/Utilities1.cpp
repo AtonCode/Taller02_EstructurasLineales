@@ -2,19 +2,21 @@
 
 //Activity One
 bool palindromeVerificationUsingStack(std::string text){
- 
+  
   std::stack<char> stackText;
   bool isPalindrome = false;
   
-  //text.erase(remove(text.begin(),text.end(), ' '),text.end());
+  text.erase(remove(text.begin(),text.end(), ' '),text.end());
+
   for(int i = 0; i < text.length(); i++){
     char character = text[i];
-    if((character != ' ') || (character != ',')){
+   
       text[i] = tolower(text[i]);
       stackText.push(text[i]);
       
-    }
+    
   }
+  
 
   for(int i = 0; i < text.length(); i++){
     if(text[i] == stackText.top()) {
@@ -29,14 +31,13 @@ bool palindromeVerificationUsingStack(std::string text){
 
 bool recibirPalindromo1(std::string s) {
   // eliminar espacios
-  // s.erase(remove(s.begin(),s.end(), ' '),s.end());
+  s.erase(remove(s.begin(),s.end(), ' '),s.end());
   // agregar palabra a un vector
   std::vector<char> v;
   int tam = s.size();
   for (int i = 0; i < tam; i++) {
     s[i] = tolower(s[i]);
-    if (s[i] != ' ')
-      v.push_back(s[i]);
+    v.push_back(s[i]);
   }
   // recorrer con 2 vectores
   std::vector<char>::reverse_iterator rit = v.rbegin();

@@ -9,10 +9,10 @@ int main(int argc, char const *argv[])
 {
   string text = " "; 
   bool isPalindrome = false;
-  cin>>text;
+  getline(cin,text);
   
-  isPalindrome = palindromeVerificationUsingStack(text);
-  //isPalindrome = recibirPalindromo1(text);
+  //isPalindrome = palindromeVerificationUsingStack(text);
+  isPalindrome = recibirPalindromo1(text);
   cout<<isPalindrome<<endl;
   
 
