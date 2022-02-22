@@ -1,5 +1,7 @@
 #include <iostream>
 #include <queue>
+#include "Patient.hpp"
+
 class Doctor {
     public:
         Doctor();
@@ -11,10 +13,11 @@ class Doctor {
         void setAvailable(std::bool available);
         std::queue<Patient> getPatientQueue();
         void setPatientQueue(Patient patient);
+
         attentPatient(Patient patient);
     protected:
         std::unsigned int id;
         std::string nombre;
         std::bool available;
         std::queue<Patient> patientsQueue;
-    };
+};
