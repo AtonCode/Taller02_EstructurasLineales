@@ -1,1 +1,11 @@
-name,
+id,nombre,available
+01,Alexander,true
+02,Diego,false
+03,Daniel,true
+04,Carmen,true
+05,Gabriel,true
+06,Jacob,true
+07,Ana,true
+08,Cristian,true
+09,Carlos,true
+10,Luis,true
