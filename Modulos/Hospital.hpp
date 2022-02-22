@@ -5,6 +5,7 @@
 #include "vector"
 
 class Hospital {
+    
     public:
         Hospital();
         std::string getName();
@@ -15,6 +16,7 @@ class Hospital {
 
         importPatients(std::string path);
         importDoctors(std::string path);
+
     protected:
         std::unsigned int id;
         std::string nombre;
