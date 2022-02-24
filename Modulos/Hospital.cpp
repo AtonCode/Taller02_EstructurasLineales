@@ -1,8 +1,10 @@
 #include "Hospital.hpp"
+#include "Doctor.hpp"
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
 
+using namespace std;
 
 Hospital::Hospital(){
   
@@ -15,15 +17,7 @@ std::string Hospital::getName(){return this->name;}
 void Hospital::setName(std::string _name){ this->name = _name;}
 
 unsigned int Hospital::getID(){return this->id;}
-void Hospital::setID(std::unsigned int _id){this->id = _id;}
-
-std::list<Doctor> Hospital::getListDoctors(return this->ListDoctors;);
-void Hospital::setDoctorToListDoctors(Doctor _doctor){ListDoctors.push_back(_doctor);}
-
-std::list<Patient>  Hospital::getListPatient(return this->ListPatient;);
-void Hospital::setPatientToListPatient(Patient _patient){ListPatient.push_back_(_patient);}
-
-
+void Hospital::setID(unsigned int _id){this->id = _id;}
 
 
 void Hospital::importDoctors(std::string _path){
@@ -31,25 +25,25 @@ void Hospital::importDoctors(std::string _path){
     const std::string dir = _path;
     //list<Doctor> _listDoctors;
     std::string campo1,campo2,campo3;
-      ifstream myfile (_path.c_str());
+      std::ifstream myfile (_path.c_str());
       if (myfile.is_open()) {
         myfile >> campo1>>campo2>>campo3;//lectura de encabezado
         while (true)
         {    
             myfile >> campo1>>campo2>>campo3;//lectura de los datos
-            Doctor::Doctor();
+            
             Doctor doctorTemporal;
-            doctorTemporal.setID(atoi(campo1));
+            doctorTemporal.setID(std::stoi(campo1));
             doctorTemporal.setName(campo2);
             doctorTemporal.setAvailable(campo3);
             
-            this->setDoctorToListDoctors(doctorTemporal);
+            this->listDoctors.push_back(doctorTemporal);
             if(myfile.eof())
               break;
         }
         myfile.close();
     }
-      else cout << "Unable to open file: "+_path;
+      else std::cout << "Unable to open file: "+_path;
        
 }
 

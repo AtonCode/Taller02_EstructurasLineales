@@ -30,7 +30,6 @@ class Hospital {
     protected:
         unsigned int id;
         std::string name;
-        Urgency urgency;
         std::list <Patient> listPatients;
         std::list <Doctor> listDoctors;
 };

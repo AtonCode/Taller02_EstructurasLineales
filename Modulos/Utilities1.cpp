@@ -1,91 +1,96 @@
 #include "Utilities1.hpp"
 
 //Activity One
+//Complejidad O(n)
 bool palindromeVerificationUsingStack(std::string text){
   
-  std::stack<char> stackText;
-  bool isPalindrome = false;
+  std::stack<char> stackText;// 1
+  bool isPalindrome = false; // 1
   
-  text.erase(remove(text.begin(),text.end(), ' '),text.end());
+  //text.erase(remove(text.begin(),text.end(), ' '),text.end()); //O(n)
 
-  for(int i = 0; i < text.length(); i++){
-    char character = text[i];
-   
-      text[i] = tolower(text[i]);
-      stackText.push(text[i]);
-      
+  for(int i = 0; i < text.length(); i++){ //n
+    char character = text[i];             //n
+      if (text[i] != ' '){                //n
+        text[i] = tolower(text[i]);       //n
+        stackText.push(text[i]);          //n
+     }
     
   }
-  
 
-  for(int i = 0; i < text.length(); i++){
-    if(text[i] == stackText.top()) {
-        stackText.pop();
+  for(int i = 0; i < text.length(); i++){  //n
+    if(text[i] == stackText.top()) {       //n
+        stackText.pop();                   //n
       }
   }
   
-  isPalindrome = stackText.empty();
+  isPalindrome = stackText.empty();        // 1
   
-  return isPalindrome;
+  return isPalindrome;                     // 1
 }
 
+
+//Complejidad O(n)
 bool recibirPalindromo1(std::string s) {
   // eliminar espacios
-  s.erase(remove(s.begin(),s.end(), ' '),s.end());
+  //s.erase(remove(s.begin(),s.end(), ' '),s.end()); //O(n)
   // agregar palabra a un vector
-  std::vector<char> v;
-  int tam = s.size();
-  for (int i = 0; i < tam; i++) {
-    s[i] = tolower(s[i]);
-    v.push_back(s[i]);
+  std::vector<char> v;                                   //1
+  int tam = s.size();                                    //1
+  for (int i = 0; i < tam; i++) {                        //n
+    s[i] = tolower(s[i]);                                //n
+    if (text[i] != ' '){                                 //n
+      v.push_back(s[i]);                                 //n
+    }
   }
   // recorrer con 2 vectores
-  std::vector<char>::reverse_iterator rit = v.rbegin();
-  std::vector<char>::iterator it = v.begin();
-  while (it != v.end()) {
-    if (*rit != *it)
-      return false;
-    it++;
-    rit++;
+  std::vector<char>::reverse_iterator rit = v.rbegin();  //1
+  std::vector<char>::iterator it = v.begin();            //1
+  while (it != v.end()) {                                //n
+    if (*rit != *it)                                     //n
+      return false;                                      //n   
+    it++;                                                //n
+    rit++;                                               //n
   }
-  return true;
+  return true;                                           //1
 }
 
 
 //Activity Two
+//Complejidad O(n) ||  O(?)
 int evaluarExpresionPostfija(std::string s) {
   // declarar stack
-  std::stack<int> exp;
+  std::stack<int> exp;                          //1
   // convertir string a char array
-  int n = s.length();
-  char ca[n + 1];
-  strcpy(ca, s.c_str());
+  int n = s.length();                           //1
+  char ca[n + 1];                               //1
+  strcpy(ca, s.c_str());                        //?
   // separar el char array por espacios
-  char *ptr;
-  ptr = strtok(ca, " ");
-  while (ptr != NULL) {
+  char *ptr;                                    //n
+  ptr = strtok(ca, " ");                        //n
+  while (ptr != NULL) {                         //n
     // si es un operador sacar los dos numeros anteriores y aplicarlo
-    if (*ptr == '+' || *ptr == '-' || *ptr == '*' || *ptr == '/') {
-      int num1 = exp.top();
-      exp.pop();
-      int num2 = exp.top();
-      exp.pop();
-      char op = *ptr;
+    if (*ptr == '+' || *ptr == '-' || *ptr == '*' || *ptr == '/') {//n
+      int num1 = exp.top();//n
+      exp.pop();//n
+      int num2 = exp.top();//n
+      exp.pop();//n
+      char op = *ptr;//n
       switch (op) {
       case '+':
-        exp.push(num1+num2);
+        exp.push(num1+num2);//n
         break;
 
       case '-':
-        exp.push(num1-num2);
+        exp.push(num1-num2);//n
         break;
 
       case '*':
-        exp.push(num1*num2);
+        exp.push(num1*num2);//n
         break;
 
       case '/':
-        std::cout<<"operación: "<<num1<<op<<num2<<std::endl;
+        std::cout<<"operación: "<<num1<<op<<num2<<std::endl;//n
         break;
 
       default:
@@ -93,11 +98,11 @@ int evaluarExpresionPostfija(std::string s) {
         break;
       }
     }else{ // Si es un numero insertarlo en la pila 
-      exp.push(atoi(ptr));
+      exp.push(atoi(ptr));                            //n
     }
-    ptr = strtok(NULL, " ");
+    ptr = strtok(NULL, " ");                          //n
   }
 
-  return exp.top();
+  return exp.top();                                   //1
 }
 
