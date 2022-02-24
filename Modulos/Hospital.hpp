@@ -1,27 +1,38 @@
+#ifndef __HOSPITAL__HPP__
+#define __HOSPITAL__HPP__
 #include <iostream>
 #include "Patient.hpp"
 #include "Doctor.hpp"
 #include "Urgency.hpp"
-#include "vector"
+#include <list>
+#include <string>
+
 
 class Hospital {
     
     public:
         Hospital();
         std::string getName();
-        void setName(std::string nombre);
+        void setName(std::string _name);
 
-        std::unsigned int getID();
-        void setID(std::unsigned int id);
+        unsigned int getID();
+        void setID(unsigned int _id);
 
-        importPatients(std::string path);
-        importDoctors(std::string path);
+        std::list<Doctor>  getListDoctors();
+        void setDoctorToListDoctors(Doctor _doctor);
+
+        std::list<Patient> getListPatient();
+        void setPatientToListPatient(Patient _patient);
+
+        void importPatients(std::string _path);
+        void importDoctors(std::string _path);
 
     protected:
-        std::unsigned int id;
-        std::string nombre;
+        unsigned int id;
+        std::string name;
         Urgency urgency;
-        std::vector <Patient> vectorPatients;
-        std::vector <Doctor> vectorDoctors;
+        std::list <Patient> listPatients;
+        std::list <Doctor> listDoctors;
 };
 
+#endif

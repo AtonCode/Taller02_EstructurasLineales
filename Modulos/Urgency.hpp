@@ -1,9 +1,17 @@
+#ifndef __URGENCY__HPP__
+#define __URGENCY__HPP__
 #include <iostream>
+#include "Doctor.hpp"
+#include "Patient.hpp"
 
 class Urgency {
     public:
         Urgency();
-        addPatientToSpecialTriageQueue(Patient patient);
-        addDoctortoDoctorList(Doctor doctor);
-        addPatientToDoctorPatientQueue(Patient patient);
-    };
+        void addPatientToSpecialTriageQueue(Patient patient);
+        void addDoctortoDoctorList(Doctor doctor);
+        void addPatientToDoctorPatientQueue(Patient patient);
+    private:
+    
+};
+
+#endif
